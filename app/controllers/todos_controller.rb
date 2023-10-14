@@ -5,6 +5,19 @@ class TodosController < ApplicationController
     @todos = Todo.all
   end
 
+  def new
+    @todo = Todo.new
+  end
+
+  def create
+    @todo = Todo.new(params_todo)
+    if @todo.save
+      redirect_to todos_url, notice: 'Todo was successfully created.'
+    else
+      render :new
+    end
+  end
+
   def show
   end
 

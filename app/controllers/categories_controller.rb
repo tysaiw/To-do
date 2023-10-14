@@ -1,8 +1,21 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, except: [:index]
+  before_action :set_category, except: [:index, :new, :create]
 
   def index
     @categories = Category.all
+  end
+
+  def new
+    @category = Category.new
+  end
+
+  def create
+    @category = Category.new(params_category)
+    if @category.save
+      redirect_to categories_url, notice: 'Category was successfully created.'
+    else
+      render :new
+    end
   end
 
   def show
