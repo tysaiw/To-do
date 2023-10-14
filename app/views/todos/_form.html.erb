@@ -1,0 +1,22 @@
+<%= form_with(model: @todo) do |f| %>
+
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title %>
+
+  <%= f.label :content, "Content" %>
+  <%= f.text_area :content %>
+
+  <%= f.label :status, "Status" %>
+  <%= f.select :status, Todo.statuses.keys.map { |s| [s.humanize, s] } %>
+
+  <%= f.label :due_date, "Due date" %>
+  <%= f.date_field :due_date %>
+
+  <%= f.label :start_at, "Start at" %>
+  <%= f.time_field :start_at %>
+
+  <%= f.label :end_at, "End at" %>
+  <%= f.time_field :end_at %>
+
+  <%= f.submit %>
+<% end %>
