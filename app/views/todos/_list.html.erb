@@ -1,0 +1,26 @@
+<% todos.each do |todo| %>
+  <turbo-frame id="todo_<%= todo.id %>">
+    <div>
+      <strong>Title:</strong>
+      <%= todo.title %>
+    </div>
+    <div>
+      <strong>Content:</strong>
+      <%= todo.content %>
+    </div>
+    <div>
+      <strong>Status:</strong>
+      <%= todo.status.humanize %>
+    </div>
+    <div>
+      <strong>Due Date:</strong>
+      <%= todo.due_date %>
+    </div>
+    <div>
+      <strong>Start At:</strong>
+      <%= todo.start_at %>
+      <strong>End At:</strong>
+      <%= todo.end_at %>
+    </div>
+  </turbo-frame>
+<% end %>

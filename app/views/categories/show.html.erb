@@ -1,1 +1,5 @@
 <%= render 'shared/header', category: @category %>
+<h1><%= @category.name %></h1>
+<turbo-frame id="todos_of_category_<%= @category.id %>">
+  <%= render 'todos/list', todos: @category.todos %>
+</turbo-frame>
